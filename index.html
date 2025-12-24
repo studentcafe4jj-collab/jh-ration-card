@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<title>Jharkhand Ration Card – CSC</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<h2>Jharkhand Ration Card Entry (CSC)</h2>
+
+<form>
+Ration Card No: <input type="text" id="rationno"><br><br>
+Card Holder Name: <input type="text" id="holder"><br><br>
+Father/Husband Name: <input type="text" id="father"><br><br>
+
+<h3>Family Members (Max 10)</h3>
+<table border="1">
+<tr><th>नाम</th><th>लिंग</th><th>उम्र</th><th>संबंध</th></tr>
+<script>
+for(let i=1;i<=10;i++){
+document.write(`
+<tr>
+<td><input id="name${i}"></td>
+<td><input id="gender${i}"></td>
+<td><input id="age${i}" size="3"></td>
+<td><input id="rel${i}"></td>
+</tr>`);
+}
+</script>
+</table><br>
+
+<button type="button" onclick="generate()">Generate Ration Card</button>
+</form>
+
+<script src="script.js"></script>
+</body>
+</html>
