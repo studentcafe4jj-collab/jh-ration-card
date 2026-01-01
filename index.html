@@ -2,35 +2,74 @@
 <html lang="hi">
 <head>
 <meta charset="UTF-8">
-<title>Jharkhand Ration Card – CSC</title>
+<title>Jharkhand PDS Print</title>
 <link rel="stylesheet" href="style.css">
+
+<script>
+if(localStorage.getItem("login")!=="yes"){
+ location.href="login.html";
+}
+</script>
 </head>
 <body>
 
-<h2>Jharkhand Ration Card Entry (CSC)</h2>
+<h1>JHARKHAND PDS PRINT</h1>
 
 <form>
-Ration Card No: <input type="text" id="rationno"><br><br>
-Card Holder Name: <input type="text" id="holder"><br><br>
-Father/Husband Name: <input type="text" id="father"><br><br>
+<div class="grid">
 
-<h3>Family Members (Max 10)</h3>
-<table border="1">
-<tr><th>नाम</th><th>लिंग</th><th>उम्र</th><th>संबंध</th></tr>
-<script>
-for(let i=1;i<=10;i++){
-document.write(`
+<div><label>Ration Card No *</label><input required></div>
+
+<div><label>कार्डधारी का नाम (Hindi) *</label><input required></div>
+
+<div><label>Card Holder Name (English) *</label><input required></div>
+
+<div><label>पिता / पति का नाम</label><input></div>
+
+<div><label>वितरक का नाम *</label><input required></div>
+
+<div><label>वितरक का पता</label><input></div>
+
+<div><label>ग्राम / वार्ड</label><input></div>
+
+<div><label>प्रखंड / नगर पालिका *</label><input required></div>
+
+<div>
+<label>जिला *</label>
+<select required>
+<option value="">Select</option>
+<option>Ranchi</option><option>Dhanbad</option><option>Bokaro</option>
+<option>Giridih</option><option>Hazaribagh</option><option>Ramgarh</option>
+<option>Palamu</option><option>Garhwa</option><option>Latehar</option>
+<option>Deoghar</option><option>Dumka</option><option>Godda</option>
+<option>Pakur</option><option>Sahebganj</option><option>Jamtara</option>
+<option>Koderma</option><option>Chatra</option><option>Khunti</option>
+<option>Gumla</option><option>Simdega</option><option>Lohardaga</option>
+<option>East Singhbhum</option><option>West Singhbhum</option>
+<option>Seraikela-Kharsawan</option>
+</select>
+</div>
+
+<div>
+<label>कार्ड का प्रकार *</label>
+<select required>
+<option value="">Select</option>
+<option>GREEN / WHITE</option>
+<option>PH / AAY</option>
+</select>
+</div>
+
+</div>
+
+<h3>Family Details</h3>
+<table id="family">
 <tr>
-<td><input id="name${i}"></td>
-<td><input id="gender${i}"></td>
-<td><input id="age${i}" size="3"></td>
-<td><input id="rel${i}"></td>
-</tr>`);
-}
-</script>
-</table><br>
+<th>नाम</th><th>लिंग</th><th>उम्र</th><th>संबंध</th><th>Action</th>
+</tr>
+</table>
 
-<button type="button" onclick="generate()">Generate Ration Card</button>
+<button type="button" onclick="addRow()">Add Member</button>
+
 </form>
 
 <script src="script.js"></script>
