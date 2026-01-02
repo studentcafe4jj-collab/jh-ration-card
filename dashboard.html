@@ -5,25 +5,43 @@
 <title>Jharkhand PDS Dashboard</title>
 <link rel="stylesheet" href="style.css">
 <script>
-if(localStorage.getItem("login")!=="yes"){location.href="login.html";}
+if(localStorage.getItem("login") !== "yes"){
+  window.location.href = "index.html";
+}
 </script>
 </head>
+
 <body>
 
 <div class="sidebar">
-<ul>
-<li onclick="show('profile')">Profile</li>
-<li onclick="show('card')">Card Print</li>
-<li onclick="show('history')">History</li>
-<li onclick="show('contact')">Contact Us</li>
-</ul>
+  <ul>
+    <li onclick="showSection('profile')">Profile</li>
+    <li onclick="showSection('card')">Card Print</li>
+    <li onclick="showSection('history')">History</li>
+    <li onclick="showSection('contact')">Contact Us</li>
+  </ul>
 </div>
 
 <div class="content">
-<div id="profile" class="section"><h2>Profile</h2></div>
-<div id="card" class="section active"><h2>Card Print</h2></div>
-<div id="history" class="section"><h2>History</h2></div>
-<div id="contact" class="section"><h2>Contact Us</h2></div>
+
+  <div id="profile" class="section">
+    <h2>Profile</h2>
+    <p>CSC Operator Profile</p>
+  </div>
+
+  <div id="card" class="section active">
+    <h2>Card Print</h2>
+    <p>Yahan form aayega</p>
+  </div>
+
+  <div id="history" class="section">
+    <h2>History</h2>
+  </div>
+
+  <div id="contact" class="section">
+    <h2>Contact Us</h2>
+  </div>
+
 </div>
 
 <script src="script.js"></script>
