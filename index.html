@@ -1,95 +1,39 @@
 <!DOCTYPE html>
-<html lang="hi">
+<html>
 <head>
-<meta charset="UTF-8">
-<title>Jharkhand PDS Print</title>
-<link rel="stylesheet" href="style.css">
+  <title>Login | Jharkhand PDS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="center">
+
+<div class="login">
+  <h2>Login</h2>
+
+  <input id="mobile" placeholder="Mobile Number">
+  <button onclick="sendOTP()">Send OTP</button>
+
+  <input id="otp" placeholder="Enter OTP">
+  <button onclick="login()">Login</button>
+
+  <p id="demo"></p>
+</div>
 
 <script>
-if(localStorage.getItem("login")!=="yes"){
- location.href="login.html";
+let otp;
+function sendOTP(){
+  otp = Math.floor(1000 + Math.random() * 9000);
+  document.getElementById("demo").innerText =
+    "Demo OTP: " + otp;
+}
+function login(){
+  if(document.getElementById("otp").value == otp){
+    localStorage.setItem("login","yes");
+    window.location.href = "dashboard.html";
+  } else {
+    alert("Wrong OTP");
+  }
 }
 </script>
-</head>
-<body>
 
-<h1>JHARKHAND PDS PRINT</h1>
-
-<form>
-<div class="grid">
-
-<div><label>Ration Card No *</label><input required></div>
-
-<div><label>कार्डधारी का नाम (Hindi) *</label><input required></div>
-
-<div><label>Card Holder Name (English) *</label><input required></div>
-
-<div><label>पिता / पति का नाम</label><input></div>
-
-<div><label>वितरक का नाम *</label><input required></div>
-
-<div><label>वितरक का पता</label><input></div>
-
-<div><label>ग्राम / वार्ड</label><input></div>
-
-<div><label>प्रखंड / नगर पालिका *</label><input required></div>
-
-<div>
-<label>जिला *</label>
-<select required>
-<option value="">Select</option>
-<option>Ranchi</option><option>Dhanbad</option><option>Bokaro</option>
-<option>Giridih</option><option>Hazaribagh</option><option>Ramgarh</option>
-<option>Palamu</option><option>Garhwa</option><option>Latehar</option>
-<option>Deoghar</option><option>Dumka</option><option>Godda</option>
-<option>Pakur</option><option>Sahebganj</option><option>Jamtara</option>
-<option>Koderma</option><option>Chatra</option><option>Khunti</option>
-<option>Gumla</option><option>Simdega</option><option>Lohardaga</option>
-<option>East Singhbhum</option><option>West Singhbhum</option>
-<option>Seraikela-Kharsawan</option>
-</select>
-</div>
-
-<div>
-<label>कार्ड का प्रकार *</label>
-<select required>
-<option value="">Select</option>
-<option>GREEN / WHITE</option>
-<option>PH / AAY</option>
-</select>
-</div>
-
-</div>
-
-<h3>Family Details</h3>
-<table id="family">
-<tr>
-<th>नाम</th><th>लिंग</th><th>उम्र</th><th>संबंध</th><th>Action</th>
-</tr>
-</table>
-
-<button type="button" onclick="addRow()">Add Member</button>
-
-</form>
-
-<script src="script.js"></script>
 </body>
 </html>
-<!DOCTYPE html>
-<html>
-<head><title>Login</title><link rel="stylesheet" href="style.css"></head>
-<body class="center">
-<div class="login">
-<h2>Login</h2>
-<input id="mobile" placeholder="Mobile Number">
-<button onclick="send()">Send OTP</button>
-<input id="otp" placeholder="OTP">
-<button onclick="verify()">Login</button>
-<p id="demo"></p>
-</div>
-<script>
-let o;
-function send(){o=Math.floor(1000+Math.random()*9000);document.getElementById('demo').innerText="Demo OTP: "+o;}
-function verify(){if(document.getElementById('otp').value==o){localStorage.setItem("login","yes");location.href="dashboard.html";}else alert("Wrong OTP");}
-</script>
-</body></html>
